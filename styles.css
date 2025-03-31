@@ -1,0 +1,575 @@
+.home-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 也可以用 cover 看你需求 */
+  z-index: -1;
+}
+/* 全局通用设置 */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #fff;
+  color: #000;
+  scroll-behavior: smooth;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 顶部导航栏 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f3f3f3;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+header .logo {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+header nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.lang-switch button {
+  background: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Banner */
+.about-banner {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 40px 10px;
+}
+
+.about-banner .name {
+  font-size: 2em;
+  margin: 0;
+}
+
+.about-banner .tagline {
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+/* 主内容布局 */
+.page-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 30px;
+  gap: 40px;
+}
+
+/* 侧边栏 */
+.sidebar {
+  width: 120px;
+  font-weight: bold;
+  color: #333;
+  display: none; /* 默认隐藏，如需可开启 */
+}
+
+/* 正文内容区域 */
+.content {
+  max-width: 700px;
+  flex: 1;
+  color: #000;
+}
+
+.content h1 {
+  border-bottom: 1px solid #999;
+  padding-bottom: 5px;
+  margin-top: 0;
+}
+
+.content h3 {
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.bio-block {
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+.bio-block ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+/* 关于页面的背景图放右边 */
+body.about-background {
+  background-image: url('images/about.jpg');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100vh;
+  background-color: black;
+}
+
+body.about-background .content {
+  color: white;
+}
+
+/* footer */
+footer {
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9em;
+  color: #888;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .page-wrapper {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  body.about-background {
+    background-size: cover;
+    background-position: center;
+  }
+}
+/* 横向两栏布局 */
+.home-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 40px;
+  background-color: white;
+}
+
+.home-left {
+  background-color: orange;
+  color: black;
+  padding: 40px 50px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.home-left .home-email {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.home-divider {
+  border: none;
+  height: 2px;
+  width: 60px;
+  background-color: black;
+  margin: 0 auto 20px;
+}
+
+.home-name {
+  font-size: 36px;
+  font-family: 'Georgia', serif;
+  margin-bottom: 10px;
+}
+
+.home-subtitle {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.home-button {
+  display: inline-block;
+  background-color: #111;
+  color: white;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.home-right img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-left: 40px;
+  max-height: 600px;
+}
+.performances-background {
+  background-color: black;
+}
+
+.timeline {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.timeline li {
+  margin-bottom: 10px;
+  color: white;
+  font-size: 16px;
+  line-height: 1.6;
+}
+/* 布局容器：左右并排 */
+.about-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 5%;
+  gap: 40px;
+  flex-wrap: wrap; /* 如果屏幕窄就自动换行 */
+}
+
+/* 左边文字内容 */
+.about-text {
+  flex: 1;
+  min-width: 300px;
+  color: white;
+}
+
+.about-text h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #666;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.about-text ul.timeline {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.about-text ul.timeline li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size: 16px;
+  color: white;
+}
+
+/* 右边照片部分 */
+.about-photo {
+  flex: 0 0 350px; /* 固定宽度 */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-photo img {
+  max-width: 100%;
+  width: 100%; /* 你可以试试 90% 或 100% 或 500px 等 */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+/* 项目页面背景 */
+.projects-background {
+  background-color: black;
+  padding: 2rem;
+}
+
+/* 布局：左右分栏 */
+.about-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* 左侧文本内容 */
+.about-text {
+  flex: 1;
+  min-width: 300px;
+  color: white;
+}
+
+/* 时间线列表样式 */
+.timeline {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.timeline li {
+  margin-bottom: 0.8rem;
+  color: white;
+  line-height: 1.5;
+}
+
+/* 右侧图片 */
+.about-photo {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-photo img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+}
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Sidebar 保持黑色文字 */
+.sidebar {
+  color: black;
+}
+
+/* 内容区域使用白色文字 */
+.content {
+  color: white;
+}
+.social-icons img {
+  width: 32px;
+  height: 32px;
+  margin-right: 1rem;
+  filter: invert(1); /* 反转颜色（可选） */
+  background-color: black; /* 给图标加个底 */
+  border-radius: 50%;
+  padding: 5px;
+}
+.social-icons img {
+  filter: none;
+  opacity: 1;
+}
+.contact-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+}
+
+.contact-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.contact-info a {
+  color: white;
+  text-decoration: underline;
+}
+
+.social-icons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-icons img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  filter: none;
+  opacity: 1;
+  transition: transform 0.2s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.signature {
+  margin-top: 2rem;
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+.gallery-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #fff;
+  color: #000;
+}
+
+.gallery-title {
+  font-family: serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.gallery-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-container img {
+  width: 60%;
+  max-width: 700px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.gallery-nav {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 1rem;
+  z-index: 2;
+}
+
+.gallery-nav.prev {
+  left: 0;
+}
+
+.gallery-nav.next {
+  right: 0;
+}
+
+.gallery-thumbs {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.gallery-thumbs .thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: border 0.3s;
+}
+
+.gallery-thumbs .thumb:hover {
+  border: 2px solid #888;
+}
+.about-text p {
+  line-height: 1.8;      /* 设置行高，拉开行间距 */
+  letter-spacing: 0.3px; /* 字距微调 */
+  margin-bottom: 1.5rem; /* 段落间距 */
+  font-size: 1.05rem;    /* 稍微大一点，更易读 */
+  text-align: justify;   /* 两端对齐排版更整洁 */
+}
+/* 页面整体布局：确保 footer 不会漂浮在中间 */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 主要内容区域自动占满中间部分 */
+.page-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  min-height: 500px; /* 防止太短导致图片上浮 */
+}
+
+/* 页脚固定在底部 */
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: white;
+  background-color: #000;
+}
+.bio-block p {
+  font-size: 1.1rem;         /* 稍微大一点的字体，更易读 */
+  line-height: 1.8;          /* 增加行间距 */
+  letter-spacing: 0.05em;    /* 增加字间距 */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.about-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+

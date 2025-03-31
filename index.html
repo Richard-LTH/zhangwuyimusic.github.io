@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WuYi Zhang - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="layout fade-in">
+
+  <header>
+    <div class="logo">WuYi Zhang</div>
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="index.html" data-en="Home" data-cn="主页">Home</a></li>
+        <li><a href="about.html" data-en="About" data-cn="关于">About</a></li>
+        <li><a href="performances.html" data-en="Performances" data-cn="演出">Performances</a></li>
+        <li><a href="projects.html" data-en="Projects" data-cn="作品">Projects</a></li>
+        <li><a href="media.html" data-en="Media" data-cn="媒体">Media</a></li>
+        <li><a href="bio.html" data-en="Bio" data-cn="简历">Bio</a></li>
+        <li><a href="contact.html" data-en="Contact" data-cn="联系">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="lang-switch">
+      <button id="langToggle">中文</button>
+    </div>
+  </header>
+
+  <!-- Home Hero Section -->
+  <main class="home-hero">
+    <div class="home-left">
+      <p class="home-email">zhangwuyi798@gmail.com</p>
+      <hr class="home-divider" />
+      <h1 class="home-name">WuYi Zhang</h1>
+      <p class="home-subtitle">Zhongruan Performer, Musician, Host, Teacher</p>
+      <a class="home-button" href="contact.html">CONTACT ME</a>
+    </div>
+    <div class="home-right">
+      <img src="images/home.jpg" alt="WuYi Zhang playing zhongruan" />
+    </div>
+  </main>
+
+  <!-- Photo Gallery -->
+  <section class="gallery-section">
+    <h2 class="gallery-title">Photo Gallery</h2>
+    <div class="gallery-container">
+      <button class="gallery-nav prev" onclick="changeSlide(-1)">&#10094;</button>
+      <img id="galleryMain" src="images/gallery1.jpg" alt="Gallery Image" />
+      <button class="gallery-nav next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+    <div class="gallery-thumbs">
+      <img class="thumb" src="images/gallery1.jpg" onclick="showSlide(0)" />
+      <img class="thumb" src="images/gallery2.jpg" onclick="showSlide(1)" />
+      <img class="thumb" src="images/gallery3.jpg" onclick="showSlide(2)" />
+      <img class="thumb" src="images/gallery4.jpg" onclick="showSlide(3)" />
+      <img class="thumb" src="images/gallery5.jpg" onclick="showSlide(4)" />
+      <img class="thumb" src="images/gallery6.jpg" onclick="showSlide(5)" />
+      <img class="thumb" src="images/gallery7.jpg" onclick="showSlide(6)" />
+      <img class="thumb" src="images/gallery8.jpg" onclick="showSlide(7)" />
+      <img class="thumb" src="images/gallery9.jpg" onclick="showSlide(8)" />
+      <img class="thumb" src="images/gallery10.jpg" onclick="showSlide(9)" />
+      <img class="thumb" src="images/gallery11.jpg" onclick="showSlide(10)" />
+      <img class="thumb" src="images/gallery12.jpg" onclick="showSlide(11)" />
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 WuYi Zhang. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const images = [
+      'images/gallery1.jpg',
+      'images/gallery2.jpg',
+      'images/gallery3.jpg',
+      'images/gallery4.jpg',
+      'images/gallery6.jpg',
+      'images/gallery7.jpg',
+      'images/gallery8.jpg',
+      'images/gallery9.jpg',
+      'images/gallery10.jpg',
+      'images/gallery11.jpg',
+      'images/gallery12.jpg',
+      'images/gallery13.jpg',
+    ];
+    let currentSlide = 0;
+    const mainImage = document.getElementById('galleryMain');
+
+    function showSlide(index) {
+      currentSlide = index;
+      mainImage.src = images[currentSlide];
+    }
+
+    function changeSlide(n) {
+      currentSlide = (currentSlide + n + images.length) % images.length;
+      mainImage.src = images[currentSlide];
+    }
+  </script>
+</body>
+</html>
